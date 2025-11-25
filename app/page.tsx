@@ -1,65 +1,104 @@
+import { Card } from "@/components/ui/card";
+import { FileText, Github, Linkedin, Mail } from "lucide-react";
 import Image from "next/image";
 
 export default function Home() {
   return (
-    <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
-        </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
-      </main>
-    </div>
+    <main className="h-screen max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 overflow-hidden flex items-center">
+      {/* GRID CONTAINER:
+        - Mobile: 1 column (auto height)
+        - Tablet (md): 4 columns
+        - Desktop (lg): 8 columns
+        - gap-3: Smaller gap to fit everything
+        - h-[calc(100%-4rem)]: Takes full height minus top/bottom margin
+        - grid-rows-[repeat(6,1fr)]: 6 equal rows for lg screens
+      */}
+      <div className="grid grid-cols-1 md:grid-cols-4 lg:grid-cols-8 gap-3 w-full h-[calc(100%-4rem)] lg:grid-rows-[repeat(6,1fr)]">
+        {/* HERO CARD: Profile Picture - 2x2 on md+, full width on mobile */}
+        <Card className="col-span-1 md:col-span-2 lg:col-span-2 row-span-2 overflow-hidden p-0">
+          <Image
+            className="object-cover w-full h-full"
+            src="/profile.jpg"
+            alt="Profile Picture"
+            width={300}
+            height={300}
+          />
+        </Card>
+        {/* HERO CARD: Introduction Text - 4x2 on lg, 2x2 on md, full width on mobile */}
+        <Card className="col-span-1 md:col-span-2 lg:col-span-4 row-span-2 flex flex-col justify-center p-6 lg:p-8">
+          <div className="flex flex-col text-center md:text-left space-y-3">
+            <h1 className="text-5xl md:text-6xl lg:text-8xl font-bold font-mono tracking-tight">
+              Rahul R.
+            </h1>
+            <p className="text-sm md:text-base lg:text-xl text-gray-500 dark:text-gray-400 font-md font-mono tracking-wider">
+              SOFTWARE ENGINEER
+            </p>
+            <p className="text-sm md:text-base lg:text-lg text-gray-600 dark:text-gray-300 font-normal leading-relaxed pt-2">
+              Welcome to my portfolio! I specialize in building modern web
+              applications using the latest technologies.
+            </p>
+          </div>
+        </Card>
+        {/* STANDARD CARDS: Social Icons - 1x1 each, stacked on mobile, row on md+ */}
+        <Card className="col-span-1 md:col-span-1 lg:col-span-1 row-span-1 flex items-center justify-center p-4 hover:bg-zinc-100 dark:hover:bg-zinc-800 transition-colors cursor-pointer">
+          <Github size={48} strokeWidth={1.5} />
+        </Card>
+        <Card className="col-span-1 md:col-span-1 lg:col-span-1 row-span-1 flex items-center justify-center p-4 hover:bg-zinc-100 dark:hover:bg-zinc-800 transition-colors cursor-pointer">
+          <Linkedin size={48} strokeWidth={1.5} />
+        </Card>
+        <Card className="col-span-1 md:col-span-1 lg:col-span-1 row-span-1 flex items-center justify-center p-4 hover:bg-zinc-100 dark:hover:bg-zinc-800 transition-colors cursor-pointer">
+          <Mail size={48} strokeWidth={1.5} />
+        </Card>
+        <Card className="col-span-1 md:col-span-1 lg:col-span-1 row-span-1 flex items-center justify-center p-4 hover:bg-zinc-100 dark:hover:bg-zinc-800 transition-colors cursor-pointer">
+          <FileText size={48} strokeWidth={1.5} />
+        </Card>
+        {/* <Card className="flex items-center justify-center p-6 hover:bg-zinc-100 dark:hover:bg-zinc-800 transition-colors cursor-pointer">
+          <Mail size={48} strokeWidth={1} />
+        </Card>{" "}
+        <Card className="flex items-center justify-center p-6 hover:bg-zinc-100 dark:hover:bg-zinc-800 transition-colors cursor-pointer">
+          <Mail size={48} strokeWidth={1} />
+        </Card>{" "}
+        <Card className="flex items-center justify-center p-6 hover:bg-zinc-100 dark:hover:bg-zinc-800 transition-colors cursor-pointer">
+          <Mail size={48} strokeWidth={1} />
+        </Card>{" "}
+        <Card className="flex items-center justify-center p-6 hover:bg-zinc-100 dark:hover:bg-zinc-800 transition-colors cursor-pointer">
+          <Mail size={48} strokeWidth={1} />
+        </Card> */}
+        {/* 2nd Row: Education, Projects, Blogs */}
+
+        <Card className="col-span-1 md:col-span-2 lg:col-span-4 row-span-2 flex flex-col p-6">
+          <h2 className="text-xl md:text-2xl lg:text-3xl font-bold font-mono">
+            Experience
+          </h2>
+        </Card>
+        <Card className="col-span-1 md:col-span-2 lg:col-span-4 row-span-2 flex flex-col p-6">
+          <h2 className="text-xl md:text-2xl lg:text-3xl font-bold font-mono">
+            Projects
+          </h2>
+        </Card>
+
+        {/* 3rd Row: Key Skills and Additional Card */}
+        <Card className="col-span-1 md:col-span-2 lg:col-span-2 row-span-2 flex flex-col p-6">
+          <h2 className="text-xl md:text-2xl lg:text-3xl font-bold font-mono">
+            Education
+          </h2>
+        </Card>
+        <Card className="col-span-1 md:col-span-2 lg:col-span-4 row-span-2 flex flex-col p-6">
+          <h2 className="text-xl md:text-2xl lg:text-3xl font-bold font-mono">
+            Key Skills
+          </h2>
+        </Card>
+        <Card className="col-span-1 md:col-span-2 lg:col-span-2 row-span-2 flex flex-col p-6">
+          <h2 className="text-xl md:text-2xl lg:text-3xl font-bold font-mono">
+            Blogs
+          </h2>
+        </Card>
+        {/* FUTURE CARDS:
+            Just add a new <Card> here. 
+            - For a wide card: add className="col-span-2"
+            - For a tall card: add className="row-span-2"
+        */}
+      </div>
+    </main>
   );
 }
