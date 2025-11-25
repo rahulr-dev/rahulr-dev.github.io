@@ -5,13 +5,21 @@ import {
   Linkedin,
   Mail,
   CircleArrowOutUpRight,
+  Code2,
+  Database,
+  LayoutTemplate,
+  Cloud,
+  PenTool,
+  Folder,
+  BookOpen,
 } from "lucide-react";
 import Image from "next/image";
 import { GridBackground } from "@/components/grid-background";
+import { GithubChartCard } from "@/components/github-chart-card";
 
 export default function Home() {
   return (
-    <main className="h-screen max-w-[1310px] mx-auto px-3 sm:px-4 lg:px-6 py-3 sm:py-4 lg:py-6 overflow-hidden relative">
+    <main className="h-screen max-w-[1200px] mx-auto px-3 sm:px-4 lg:px-6 py-3 sm:py-4 lg:py-6 overflow-hidden relative">
       <GridBackground />
       {/* GRID CONTAINER:
         - Mobile: 1 column (auto height)
@@ -22,77 +30,100 @@ export default function Home() {
       */}
       <div className="grid grid-cols-1 md:grid-cols-4 lg:grid-cols-8 gap-2 sm:gap-3 lg:gap-4 w-full h-full lg:grid-rows-[repeat(6,1fr)] relative z-10">
         {/* HERO CARD: Profile Picture - 2x2 on md+, full width on mobile */}
-        <Card className="col-span-1 md:col-span-2 lg:col-span-2 md:row-span-2 overflow-hidden p-0 group transition-all duration-300 hover:shadow-xl h-48 md:h-auto">
+        <Card className="col-span-1 md:col-span-2 lg:col-span-2 md:row-span-2 overflow-hidden p-0 group hover:shadow-xl h-48 md:h-auto border-muted/40 bg-card/50 backdrop-blur-sm">
           <div className="relative w-full h-full">
             <Image
-              className="select-none object-cover w-full h-full transition-transform duration-700 group-hover:scale-105 animate-in fade-in"
+              className="select-none object-cover w-full h-full transition-transform duration-700 group-hover:scale-105"
               src="/profile.jpg"
               alt="Profile Picture"
               width={400}
               height={400}
               priority
             />
+            <div className="absolute bottom-2 left-2 right-2 sm:bottom-3 sm:left-3 sm:right-3 bg-background/80 backdrop-blur-md border border-border/40 p-1.5 sm:p-2 rounded-lg flex items-center gap-2 shadow-sm z-10">
+              <div className="relative flex h-2 w-2 sm:h-2.5 sm:w-2.5 shrink-0">
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
+                <span className="relative inline-flex rounded-full h-2 w-2 sm:h-2.5 sm:w-2.5 bg-green-500"></span>
+              </div>
+              <span className="text-[10px] sm:text-xs font-medium text-foreground/90 whitespace-nowrap">
+                Open to work
+              </span>
+            </div>
           </div>
         </Card>
         {/* HERO CARD: Introduction Text - 4x2 on lg, 2x2 on md, full width on mobile */}
-        <Card className="col-span-1 md:col-span-2 lg:col-span-4 md:row-span-2 flex flex-col justify-center p-4 sm:p-5 lg:p-6 transition-all duration-300 hover:shadow-xl h-48 md:h-auto">
+        <Card className="col-span-1 md:col-span-2 lg:col-span-4 md:row-span-2 flex flex-col justify-center p-4 sm:p-5 lg:p-6 hover:shadow-xl h-48 md:h-auto border-muted/40 bg-card/50 backdrop-blur-sm">
           <div className="flex flex-col text-center md:text-left space-y-2 sm:space-y-2.5">
-            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold font-mono tracking-tight animate-in fade-in slide-in-from-bottom-4 duration-700">
-              Rahul R.
+            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold font-mono tracking-tighter">
+              Rahul R<span className="text-primary">.</span>
             </h1>
-            <p className="text-xs sm:text-sm md:text-base lg:text-lg text-muted-foreground font-medium font-mono tracking-wider uppercase animate-in fade-in slide-in-from-bottom-4 duration-700 delay-100">
+            <p className="text-xs sm:text-sm md:text-base lg:text-base text-primary/80 font-medium font-mono tracking-wider uppercase">
               Software Engineer
             </p>
-            <p className="text-xs sm:text-sm md:text-base text-foreground/80 font-normal leading-relaxed pt-1 max-w-2xl animate-in fade-in slide-in-from-bottom-4 duration-700 delay-200">
+            <p className="text-xs sm:text-sm md:text-base text-foreground/80 font-normal leading-relaxed pt-1 max-w-2xl">
               Welcome to my portfolio! I specialize in building modern web
               applications using the latest technologies.
             </p>
           </div>
         </Card>
-        {/* STANDARD CARDS: Social Icons - 1x1 each, stacked on mobile, row on md+ */}
-        <Card className="col-span-1 md:col-span-1 lg:col-span-1 md:row-span-1 h-20 md:h-auto flex items-center justify-center p-3 hover:bg-accent transition-all duration-300 cursor-pointer group hover:shadow-lg">
-          <Github
-            className="transition-transform duration-300 group-hover:scale-110"
-            size={32}
-            strokeWidth={1.5}
-          />
+        {/* SOCIALS CARD: 2x1 */}
+        <Card className="col-span-1 md:col-span-2 lg:col-span-2 md:row-span-1 flex items-center justify-center p-4 border-muted/40 bg-card/50 backdrop-blur-sm hover:shadow-xl transition-all">
+          <div className="flex w-full flex-wrap items-center justify-center gap-3 sm:gap-4">
+            <a
+              href="https://github.com/rahulr-dev"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex h-11 w-11 items-center justify-center rounded-lg hover:bg-primary/10 transition-colors group"
+              aria-label="GitHub"
+            >
+              <Github
+                className="text-muted-foreground group-hover:text-primary group-hover:scale-110 transition-all"
+                size={26}
+                strokeWidth={1.5}
+              />
+            </a>
+            <a
+              href="#"
+              className="flex h-11 w-11 items-center justify-center rounded-lg hover:bg-primary/10 transition-colors group"
+              aria-label="LinkedIn"
+            >
+              <Linkedin
+                className="text-muted-foreground group-hover:text-primary group-hover:scale-110 transition-all"
+                size={26}
+                strokeWidth={1.5}
+              />
+            </a>
+            <a
+              href="mailto:hello@rahulr.dev"
+              className="flex h-11 w-11 items-center justify-center rounded-lg hover:bg-primary/10 transition-colors group"
+              aria-label="Email"
+            >
+              <Mail
+                className="text-muted-foreground group-hover:text-primary group-hover:scale-110 transition-all"
+                size={26}
+                strokeWidth={1.5}
+              />
+            </a>
+            <a
+              href="/resume.pdf"
+              className="flex h-11 w-11 items-center justify-center rounded-lg hover:bg-primary/10 transition-colors group"
+              aria-label="Resume"
+            >
+              <FileText
+                className="text-muted-foreground group-hover:text-primary group-hover:scale-110 transition-all"
+                size={26}
+                strokeWidth={1.5}
+              />
+            </a>
+          </div>
         </Card>
-        <Card className="col-span-1 md:col-span-1 lg:col-span-1 md:row-span-1 h-20 md:h-auto flex items-center justify-center p-3 hover:bg-accent transition-all duration-300 cursor-pointer group hover:shadow-lg">
-          <Linkedin
-            className="transition-transform duration-300 group-hover:scale-110"
-            size={32}
-            strokeWidth={1.5}
-          />
-        </Card>
-        <Card className="col-span-1 md:col-span-1 lg:col-span-1 md:row-span-1 h-20 md:h-auto flex items-center justify-center p-3 hover:bg-accent transition-all duration-300 cursor-pointer group hover:shadow-lg">
-          <Mail
-            className="transition-transform duration-300 group-hover:scale-110"
-            size={32}
-            strokeWidth={1.5}
-          />
-        </Card>
-        <Card className="col-span-1 md:col-span-1 lg:col-span-1 md:row-span-1 h-20 md:h-auto flex items-center justify-center p-3 hover:bg-accent transition-all duration-300 cursor-pointer group hover:shadow-lg">
-          <FileText
-            className="transition-transform duration-300 group-hover:scale-110"
-            size={32}
-            strokeWidth={1.5}
-          />
-        </Card>
-        {/* <Card className="flex items-center justify-center p-6 hover:bg-zinc-100 dark:hover:bg-zinc-800 transition-colors cursor-pointer">
-          <Mail size={48} strokeWidth={1} />
-        </Card>{" "}
-        <Card className="flex items-center justify-center p-6 hover:bg-zinc-100 dark:hover:bg-zinc-800 transition-colors cursor-pointer">
-          <Mail size={48} strokeWidth={1} />
-        </Card>{" "}
-        <Card className="flex items-center justify-center p-6 hover:bg-zinc-100 dark:hover:bg-zinc-800 transition-colors cursor-pointer">
-          <Mail size={48} strokeWidth={1} />
-        </Card>{" "}
-        <Card className="flex items-center justify-center p-6 hover:bg-zinc-100 dark:hover:bg-zinc-800 transition-colors cursor-pointer">
-          <Mail size={48} strokeWidth={1} />
-        </Card> */}
+
+        {/* GITHUB CHART CARD: 2x1 */}
+        <GithubChartCard />
+
         {/* 2nd Row: Experience, Projects */}
 
-        <Card className="col-span-1 md:col-span-2 lg:col-span-4 md:row-span-2 h-40 md:h-auto flex flex-col justify-between p-3 sm:p-4 lg:p-5 transition-all duration-300 hover:shadow-xl group overflow-hidden">
+        <Card className="col-span-1 md:col-span-2 lg:col-span-4 md:row-span-2 h-40 md:h-auto flex flex-col justify-between p-3 sm:p-4 lg:p-5 hover:shadow-xl group overflow-hidden">
           <h2 className="text-xl sm:text-2xl lg:text-3xl font-bold font-mono group-hover:text-primary transition-colors">
             Experience
           </h2>
@@ -123,31 +154,66 @@ export default function Home() {
             </ul>
           </div>
         </Card>
-        <Card className="col-span-1 md:col-span-2 lg:col-span-2 md:row-span-2 h-40 md:h-auto flex flex-col p-3 sm:p-4 lg:p-5 transition-all duration-300 hover:shadow-xl group cursor-pointer relative">
-          <h2 className="text-xl sm:text-2xl lg:text-3xl font-bold font-mono mb-2 group-hover:text-primary transition-colors">
-            Projects
-          </h2>
-          <div className="flex-1 flex items-center justify-center text-muted-foreground"></div>
+        <Card className="col-span-1 md:col-span-2 lg:col-span-2 md:row-span-2 h-40 md:h-auto flex flex-col p-3 sm:p-4 lg:p-5 hover:shadow-xl group cursor-pointer relative border-muted/40 bg-card/50 backdrop-blur-sm transition-all hover:-translate-y-1">
+          <div className="flex items-center justify-between mb-2">
+            <h2 className="text-xl sm:text-2xl lg:text-3xl font-bold font-mono group-hover:text-primary transition-colors">
+              Projects
+            </h2>
+            <Folder
+              className="text-muted-foreground group-hover:text-primary transition-colors"
+              size={24}
+            />
+          </div>
+          <div className="flex flex-col gap-2 mt-1">
+            <div className="flex items-center gap-2 text-xs sm:text-sm text-muted-foreground group-hover:text-foreground transition-colors">
+              <div className="w-1.5 h-1.5 rounded-full bg-primary/60" />
+              <span>AI Content Platform</span>
+            </div>
+            <div className="flex items-center gap-2 text-xs sm:text-sm text-muted-foreground group-hover:text-foreground transition-colors">
+              <div className="w-1.5 h-1.5 rounded-full bg-primary/60" />
+              <span>E-commerce API</span>
+            </div>
+            <div className="flex items-center gap-2 text-xs sm:text-sm text-muted-foreground group-hover:text-foreground transition-colors">
+              <div className="w-1.5 h-1.5 rounded-full bg-primary/60" />
+              <span>Portfolio V2</span>
+            </div>
+          </div>
           <CircleArrowOutUpRight
-            className="absolute bottom-3 right-3 sm:bottom-4 sm:right-4 lg:bottom-5 lg:right-5 opacity-50 group-hover:opacity-100 transition-opacity"
+            className="absolute bottom-3 right-3 sm:bottom-4 sm:right-4 lg:bottom-5 lg:right-5 opacity-50 group-hover:opacity-100 transition-opacity text-primary"
             size={20}
             strokeWidth={2}
           />
         </Card>
-        <Card className="col-span-1 md:col-span-2 lg:col-span-2 md:row-span-2 h-40 md:h-auto flex flex-col p-3 sm:p-4 lg:p-5 transition-all duration-300 hover:shadow-xl group cursor-pointer relative">
-          <h2 className="text-xl sm:text-2xl lg:text-3xl font-bold font-mono mb-2 group-hover:text-primary transition-colors">
-            Blogs
-          </h2>
-          <div className="flex-1 flex items-center justify-center text-muted-foreground"></div>
+        <Card className="col-span-1 md:col-span-2 lg:col-span-2 md:row-span-2 h-40 md:h-auto flex flex-col p-3 sm:p-4 lg:p-5 hover:shadow-xl group cursor-pointer relative border-muted/40 bg-card/50 backdrop-blur-sm transition-all hover:-translate-y-1">
+          <div className="flex items-center justify-between mb-2">
+            <h2 className="text-xl sm:text-2xl lg:text-3xl font-bold font-mono group-hover:text-primary transition-colors">
+              Blog
+            </h2>
+            <BookOpen
+              className="text-muted-foreground group-hover:text-primary transition-colors"
+              size={24}
+            />
+          </div>
+          <div className="flex flex-col gap-1 mt-1">
+            <span className="text-[10px] font-semibold text-primary/80 uppercase tracking-wider">
+              Latest Post
+            </span>
+            <p className="text-xs sm:text-sm font-medium leading-tight text-foreground/90 group-hover:underline decoration-primary/50 underline-offset-4 line-clamp-2">
+              Optimizing .NET Core Performance for High-Scale Apps
+            </p>
+            <p className="text-[10px] sm:text-xs text-muted-foreground mt-1">
+              Nov 24, 2025 • 5 min read
+            </p>
+          </div>
           <CircleArrowOutUpRight
-            className="absolute bottom-3 right-3 sm:bottom-4 sm:right-4 lg:bottom-5 lg:right-5 opacity-50 group-hover:opacity-100 transition-opacity"
+            className="absolute bottom-3 right-3 sm:bottom-4 sm:right-4 lg:bottom-5 lg:right-5 opacity-50 group-hover:opacity-100 transition-opacity text-primary"
             size={20}
             strokeWidth={2}
           />
         </Card>
 
         {/* 3rd Row: Education, Key Skills, and Blogs */}
-        <Card className="col-span-1 md:col-span-2 lg:col-span-4 md:row-span-2 h-40 md:h-auto flex flex-col justify-between p-3 sm:p-4 lg:p-5 transition-all duration-300 hover:shadow-xl group overflow-hidden">
+        <Card className="col-span-1 md:col-span-2 lg:col-span-4 md:row-span-2 h-40 md:h-auto flex flex-col justify-between p-3 sm:p-4 lg:p-5 hover:shadow-xl group overflow-hidden border-muted/40 bg-card/50 backdrop-blur-sm">
           <h2 className="text-xl sm:text-2xl lg:text-3xl font-bold font-mono group-hover:text-primary transition-colors">
             Education
           </h2>
@@ -157,40 +223,127 @@ export default function Home() {
                 <h3 className="font-semibold text-foreground leading-snug text-sm sm:text-base">
                   SNS College of Engineering
                 </h3>
-                <span className="text-muted-foreground text-[11px] sm:text-xs whitespace-nowrap">
-                  Nov 2022 - Nov 2026
+                <span className="px-2 py-0.5 rounded-full bg-secondary/50 text-secondary-foreground text-[10px] sm:text-xs font-medium whitespace-nowrap">
+                  2022 - 2026
                 </span>
               </div>
-              <p className="text-foreground/80 text-xs sm:text-sm">
+              <p className="text-primary/80 font-medium text-xs sm:text-sm">
                 B.Tech in Information Technology
               </p>
-              <p className="text-muted-foreground font-medium text-xs sm:text-sm">
+              <p className="text-muted-foreground text-xs sm:text-sm">
                 CGPA: 8.2/10
-              </p>
-            </div>
-            <div className="space-y-1">
-              <div className="flex items-start justify-between gap-2">
-                <h3 className="font-semibold text-foreground leading-snug text-sm sm:text-base">
-                  Kongu Vellalar Mat. HSS
-                </h3>
-                <span className="text-muted-foreground text-[11px] sm:text-xs whitespace-nowrap">
-                  May 2021 - May 2022
-                </span>
-              </div>
-              <p className="text-foreground/80 text-xs sm:text-sm">
-                Senior Secondary School
-              </p>
-              <p className="text-muted-foreground font-medium text-xs sm:text-sm">
-                Percentage: 87%
               </p>
             </div>
           </div>
         </Card>
-        <Card className="col-span-1 md:col-span-2 lg:col-span-4 md:row-span-2 h-40 md:h-auto flex flex-col p-3 sm:p-4 lg:p-5 transition-all duration-300 hover:shadow-xl group">
-          <h2 className="text-xl sm:text-2xl lg:text-3xl font-bold font-mono mb-2 group-hover:text-primary transition-colors">
-            Key Skills
+        <Card className="col-span-1 md:col-span-2 lg:col-span-4 md:row-span-2 h-40 md:h-auto flex flex-col p-3 sm:p-4 lg:p-5 hover:shadow-xl group border-muted/40 bg-card/50 backdrop-blur-sm overflow-hidden">
+          <h2 className="text-xl sm:text-2xl lg:text-3xl font-bold font-mono mb-4 group-hover:text-primary transition-colors z-10">
+            Skills
           </h2>
-          <div className="flex-1 flex items-center justify-center text-muted-foreground"></div>
+          <div className="flex flex-col justify-center h-full gap-3 sm:gap-4 overflow-hidden py-2 relative">
+            {/* Gradient Masks for smooth fade effect */}
+            <div className="absolute left-0 top-0 bottom-0 w-8 sm:w-12 bg-linear-to-r from-card to-transparent z-10 pointer-events-none" />
+            <div className="absolute right-0 top-0 bottom-0 w-8 sm:w-12 bg-linear-to-l from-card to-transparent z-10 pointer-events-none" />
+
+            {/* Row 1: Languages & Frontend */}
+            <div className="flex overflow-hidden select-none group/marquee">
+              <div className="flex shrink-0 animate-marquee gap-2 sm:gap-3 group-hover/marquee:play-paused">
+                {[
+                  "C#",
+                  "Python",
+                  "TypeScript",
+                  "JavaScript",
+                  "React",
+                  "Next.js",
+                  "HTML",
+                  "CSS",
+                  "Tailwind",
+                  "C#",
+                  "Python",
+                  "TypeScript",
+                  "JavaScript",
+                  "React",
+                  "Next.js",
+                  "HTML",
+                  "CSS",
+                  "Tailwind",
+                ].map((skill, i) => (
+                  <span
+                    key={`r1-${i}`}
+                    className="px-2.5 py-1 rounded-md bg-primary/5 text-primary text-[10px] sm:text-xs font-medium border border-primary/10 whitespace-nowrap"
+                  >
+                    {skill}
+                  </span>
+                ))}
+              </div>
+            </div>
+
+            {/* Row 2: Backend & Database (Reverse) */}
+            <div className="flex overflow-hidden select-none group/marquee">
+              <div className="flex shrink-0 animate-marquee-reverse gap-2 sm:gap-3 group-hover/marquee:play-paused">
+                {[
+                  "ASP.NET Core",
+                  ".NET",
+                  "FastAPI",
+                  "Node.js",
+                  "PostgreSQL",
+                  "MongoDB",
+                  "SQL",
+                  "Supabase",
+                  "Prisma",
+                  "ASP.NET Core",
+                  ".NET",
+                  "FastAPI",
+                  "Node.js",
+                  "PostgreSQL",
+                  "MongoDB",
+                  "SQL",
+                  "Supabase",
+                  "Prisma",
+                ].map((skill, i) => (
+                  <span
+                    key={`r2-${i}`}
+                    className="px-2.5 py-1 rounded-md bg-secondary/50 text-secondary-foreground text-[10px] sm:text-xs font-medium border border-border/50 whitespace-nowrap"
+                  >
+                    {skill}
+                  </span>
+                ))}
+              </div>
+            </div>
+
+            {/* Row 3: Tools & Cloud */}
+            <div className="flex overflow-hidden select-none group/marquee">
+              <div className="flex shrink-0 animate-marquee gap-2 sm:gap-3 group-hover/marquee:play-paused">
+                {[
+                  "AWS",
+                  "Azure",
+                  "Docker",
+                  "Git",
+                  "CI/CD",
+                  "System Design",
+                  "Figma",
+                  "Unity",
+                  "Blender",
+                  "AWS",
+                  "Azure",
+                  "Docker",
+                  "Git",
+                  "CI/CD",
+                  "System Design",
+                  "Figma",
+                  "Unity",
+                  "Blender",
+                ].map((skill, i) => (
+                  <span
+                    key={`r3-${i}`}
+                    className="px-2.5 py-1 rounded-md bg-muted/50 text-muted-foreground text-[10px] sm:text-xs font-medium border border-border/50 whitespace-nowrap"
+                  >
+                    {skill}
+                  </span>
+                ))}
+              </div>
+            </div>
+          </div>
         </Card>
 
         {/* FUTURE CARDS:
