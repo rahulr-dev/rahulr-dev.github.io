@@ -116,7 +116,17 @@
   * {
     @apply border-border outline-ring/50;
   }
+
+  html {
+    overflow: hidden;
+  }
+
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground antialiased overflow-hidden;
+  }
+
+  /* Improved focus styles for accessibility */
+  *:focus-visible {
+    @apply outline-2 outline-offset-2 outline-ring;
   }
 }
