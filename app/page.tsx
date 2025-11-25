@@ -92,11 +92,11 @@ export default function Home() {
         </Card> */}
         {/* 2nd Row: Experience, Projects */}
 
-        <Card className="col-span-1 md:col-span-2 lg:col-span-4 md:row-span-2 h-40 md:h-auto flex flex-col p-3 sm:p-4 lg:p-5 transition-all duration-300 hover:shadow-xl group overflow-hidden">
-          <h2 className="text-xl sm:text-2xl lg:text-3xl font-bold font-mono mb-2 group-hover:text-primary transition-colors">
+        <Card className="col-span-1 md:col-span-2 lg:col-span-4 md:row-span-2 h-40 md:h-auto flex flex-col justify-between p-3 sm:p-4 lg:p-5 transition-all duration-300 hover:shadow-xl group overflow-hidden">
+          <h2 className="text-xl sm:text-2xl lg:text-3xl font-bold font-mono group-hover:text-primary transition-colors">
             Experience
           </h2>
-          <div className="flex-1 flex flex-col space-y-2 text-xs sm:text-sm">
+          <div className="flex flex-col space-y-2 text-xs sm:text-sm">
             <div className="space-y-1">
               <div className="flex items-baseline justify-between gap-2">
                 <h3 className="font-semibold text-foreground text-sm sm:text-base">
@@ -147,11 +147,11 @@ export default function Home() {
         </Card>
 
         {/* 3rd Row: Education, Key Skills, and Blogs */}
-        <Card className="col-span-1 md:col-span-2 lg:col-span-4 md:row-span-2 h-40 md:h-auto flex flex-col p-3 sm:p-4 lg:p-5 transition-all duration-300 hover:shadow-xl group overflow-hidden">
-          <h2 className="text-xl sm:text-2xl lg:text-3xl font-bold font-mono mb-2 group-hover:text-primary transition-colors">
+        <Card className="col-span-1 md:col-span-2 lg:col-span-4 md:row-span-2 h-40 md:h-auto flex flex-col justify-between p-3 sm:p-4 lg:p-5 transition-all duration-300 hover:shadow-xl group overflow-hidden">
+          <h2 className="text-xl sm:text-2xl lg:text-3xl font-bold font-mono group-hover:text-primary transition-colors">
             Education
           </h2>
-          <div className="flex-1 flex flex-col space-y-4 text-xs sm:text-sm">
+          <div className="flex flex-col space-y-4 text-xs sm:text-sm">
             <div className="space-y-1">
               <div className="flex items-start justify-between gap-2">
                 <h3 className="font-semibold text-foreground leading-snug text-sm sm:text-base">
