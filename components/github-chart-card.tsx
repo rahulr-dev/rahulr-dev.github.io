@@ -1,4 +1,4 @@
-import { Card } from "@/components/ui/card";
+import { ContributionGrid } from "@/components/contribution-grid";
 
 type ContributionDay = {
   date: string;
@@ -42,46 +42,8 @@ async function fetchRecentContributions(): Promise<ContributionDay[]> {
   }
 }
 
-const LEVEL_CLASSES = [
-  "bg-muted border-border",
-  "bg-emerald-200/70 border-emerald-200/60",
-  "bg-emerald-300/70 border-emerald-300/60",
-  "bg-emerald-400/80 border-emerald-400/60",
-  "bg-emerald-500/90 border-emerald-500/60",
-];
-
-const dateFormatter = new Intl.DateTimeFormat("en-US", {
-  month: "short",
-  day: "numeric",
-});
-
 export async function GithubChartCard() {
   const contributions = await fetchRecentContributions();
 
-  return (
-    <Card className="col-span-1 md:col-span-2 lg:col-span-2 md:row-span-1 flex flex-col items-center justify-center gap-2 p-3 sm:p-4 text-center border-muted/40 bg-card/50 backdrop-blur-sm hover:shadow-xl transition-all group">
-      <div className="grid grid-flow-col grid-rows-7 gap-x-1.5 gap-y-1">
-        {contributions.map((day) => {
-          const levelClass = LEVEL_CLASSES[day.level] ?? LEVEL_CLASSES[0];
-          const formattedDate = dateFormatter.format(new Date(day.date));
-
-          return (
-            <span
-              key={day.date}
-              className={`size-2.5 sm:size-2.5 rounded-[2px] border transition-colors duration-200 ${levelClass}`}
-              title={`${formattedDate}: ${day.count} contribution${
-                day.count === 1 ? "" : "s"
-              }`}
-              aria-label={`${day.count} contribution${
-                day.count === 1 ? "" : "s"
-              } on ${formattedDate}`}
-            />
-          );
-        })}
-      </div>
-      {/* <p className="text-[5px] sm:text-[5px] uppercase tracking-[0.2em] text-muted-foreground">
-        Last {MAX_DAYS} days
-      </p> */}
-    </Card>
-  );
+  return <ContributionGrid contributions={contributions} />;
 }
