@@ -166,29 +166,19 @@ export default function Home() {
           </div>
         </Card>
         <Tooltip content="View Projects">
-          <Card className="col-span-1 md:col-span-2 lg:col-span-2 md:row-span-2 h-40 md:h-auto flex flex-col p-3 sm:p-4 lg:p-5 hover:shadow-xl group cursor-pointer relative border-muted/40 bg-card/50 backdrop-blur-sm transition-all hover:-translate-y-1">
-            <div className="flex items-center justify-between mb-2">
-              <h2 className="text-xl sm:text-2xl lg:text-3xl font-bold font-mono group-hover:text-primary transition-colors">
-                Projects
-              </h2>
-              <Folder
-                className="text-muted-foreground group-hover:text-primary transition-colors"
-                size={24}
+          <Card className="col-span-1 gap-0 md:col-span-2 lg:col-span-2 md:row-span-2 h-40 md:h-auto flex flex-col justify-between p-3 sm:p-4 lg:p-5 hover:shadow-xl group cursor-pointer relative border-muted/40 bg-card/50 backdrop-blur-sm transition-all hover:-translate-y-1">
+            <h2 className="text-xl sm:text-2xl lg:text-3xl font-bold font-mono group-hover:text-primary transition-colors">
+              Projects
+            </h2>
+            <div className="flex-1 flex items-center justify-center relative">
+              <div className="absolute inset-0 bg-linear-to-br from-primary/5 via-primary/10 to-transparent rounded-lg blur-xl opacity-0 group-hover:opacity-60 transition-opacity duration-500" />
+              <Image
+                src="/mac.png"
+                alt="macbook"
+                width={200}
+                height={200}
+                className="object-contain w-full h-auto max-w-40 sm:max-w-[180px] select-none saturate-0 contrast-90 group-hover:saturate-100 group-hover:scale-105 transition-all relative z-10"
               />
-            </div>
-            <div className="flex flex-col gap-2 mt-1">
-              <div className="flex items-center gap-2 text-xs sm:text-sm text-muted-foreground group-hover:text-foreground transition-colors">
-                <div className="w-1.5 h-1.5 rounded-full bg-primary/60" />
-                <span>AI Content Platform</span>
-              </div>
-              <div className="flex items-center gap-2 text-xs sm:text-sm text-muted-foreground group-hover:text-foreground transition-colors">
-                <div className="w-1.5 h-1.5 rounded-full bg-primary/60" />
-                <span>E-commerce API</span>
-              </div>
-              <div className="flex items-center gap-2 text-xs sm:text-sm text-muted-foreground group-hover:text-foreground transition-colors">
-                <div className="w-1.5 h-1.5 rounded-full bg-primary/60" />
-                <span>Portfolio V2</span>
-              </div>
             </div>
             <CircleArrowOutUpRight
               className="absolute bottom-3 right-3 sm:bottom-4 sm:right-4 lg:bottom-5 lg:right-5 opacity-50 group-hover:opacity-100 transition-opacity text-primary"
@@ -203,10 +193,6 @@ export default function Home() {
               <h2 className="text-xl sm:text-2xl lg:text-3xl font-bold font-mono group-hover:text-primary transition-colors">
                 Blog
               </h2>
-              <BookOpen
-                className="text-muted-foreground group-hover:text-primary transition-colors"
-                size={24}
-              />
             </div>
             <div className="flex flex-col gap-1 mt-1">
               <span className="text-[10px] font-semibold text-primary/80 uppercase tracking-wider">
