@@ -92,15 +92,51 @@ export default function Home() {
         </Card> */}
         {/* 2nd Row: Experience, Projects */}
 
-        <Card className="col-span-1 md:col-span-2 lg:col-span-4 md:row-span-2 h-40 md:h-auto flex flex-col p-3 sm:p-4 lg:p-5 transition-all duration-300 hover:shadow-xl group">
-          <h2 className="text-lg sm:text-xl lg:text-2xl font-bold font-mono mb-2 group-hover:text-primary transition-colors">
+        <Card className="col-span-1 md:col-span-2 lg:col-span-4 md:row-span-2 h-40 md:h-auto flex flex-col p-3 sm:p-4 lg:p-5 transition-all duration-300 hover:shadow-xl group overflow-hidden">
+          <h2 className="text-xl sm:text-2xl lg:text-3xl font-bold font-mono mb-2 group-hover:text-primary transition-colors">
             Experience
           </h2>
-          <div className="flex-1 flex items-center justify-center text-muted-foreground"></div>
+          <div className="flex-1 flex flex-col space-y-2 text-xs sm:text-sm">
+            <div className="space-y-1">
+              <div className="flex items-baseline justify-between gap-2">
+                <h3 className="font-semibold text-foreground text-sm sm:text-base">
+                  Software Engineer Trainee
+                </h3>
+                <span className="text-muted-foreground text-[11px] sm:text-xs whitespace-nowrap">
+                  Sep 2024 - Sep 2025
+                </span>
+              </div>
+              <p className="text-muted-foreground font-medium text-xs sm:text-sm">
+                Wise Work • Bangalore (Remote)
+              </p>
+            </div>
+            <ul className="space-y-0.5 text-foreground/80 list-disc list-inside marker:text-primary/50 text-xs sm:text-sm">
+              <li className="line-clamp-1">
+                Backend services for secure LLM platform (C#, ASP.NET Core)
+              </li>
+              <li className="line-clamp-1">
+                Dynamic AI provider selection supporting 12+ models
+              </li>
+              <li className="line-clamp-1">
+                Performance tuning & code reviews in agile environment
+              </li>
+            </ul>
+          </div>
         </Card>
-        <Card className="col-span-1 md:col-span-2 lg:col-span-4 md:row-span-2 h-40 md:h-auto flex flex-col p-3 sm:p-4 lg:p-5 transition-all duration-300 hover:shadow-xl group cursor-pointer relative">
-          <h2 className="text-lg sm:text-xl lg:text-2xl font-bold font-mono mb-2 group-hover:text-primary transition-colors">
+        <Card className="col-span-1 md:col-span-2 lg:col-span-2 md:row-span-2 h-40 md:h-auto flex flex-col p-3 sm:p-4 lg:p-5 transition-all duration-300 hover:shadow-xl group cursor-pointer relative">
+          <h2 className="text-xl sm:text-2xl lg:text-3xl font-bold font-mono mb-2 group-hover:text-primary transition-colors">
             Projects
+          </h2>
+          <div className="flex-1 flex items-center justify-center text-muted-foreground"></div>
+          <CircleArrowOutUpRight
+            className="absolute bottom-3 right-3 sm:bottom-4 sm:right-4 lg:bottom-5 lg:right-5 opacity-50 group-hover:opacity-100 transition-opacity"
+            size={20}
+            strokeWidth={2}
+          />
+        </Card>
+        <Card className="col-span-1 md:col-span-2 lg:col-span-2 md:row-span-2 h-40 md:h-auto flex flex-col p-3 sm:p-4 lg:p-5 transition-all duration-300 hover:shadow-xl group cursor-pointer relative">
+          <h2 className="text-xl sm:text-2xl lg:text-3xl font-bold font-mono mb-2 group-hover:text-primary transition-colors">
+            Blogs
           </h2>
           <div className="flex-1 flex items-center justify-center text-muted-foreground"></div>
           <CircleArrowOutUpRight
@@ -111,29 +147,52 @@ export default function Home() {
         </Card>
 
         {/* 3rd Row: Education, Key Skills, and Blogs */}
-        <Card className="col-span-1 md:col-span-2 lg:col-span-2 md:row-span-2 h-40 md:h-auto flex flex-col p-3 sm:p-4 lg:p-5 transition-all duration-300 hover:shadow-xl group">
-          <h2 className="text-lg sm:text-xl lg:text-2xl font-bold font-mono mb-2 group-hover:text-primary transition-colors">
+        <Card className="col-span-1 md:col-span-2 lg:col-span-4 md:row-span-2 h-40 md:h-auto flex flex-col p-3 sm:p-4 lg:p-5 transition-all duration-300 hover:shadow-xl group overflow-hidden">
+          <h2 className="text-xl sm:text-2xl lg:text-3xl font-bold font-mono mb-2 group-hover:text-primary transition-colors">
             Education
           </h2>
-          <div className="flex-1 flex items-center justify-center text-muted-foreground"></div>
+          <div className="flex-1 flex flex-col space-y-4 text-xs sm:text-sm">
+            <div className="space-y-1">
+              <div className="flex items-start justify-between gap-2">
+                <h3 className="font-semibold text-foreground leading-snug text-sm sm:text-base">
+                  SNS College of Engineering
+                </h3>
+                <span className="text-muted-foreground text-[11px] sm:text-xs whitespace-nowrap">
+                  Nov 2022 - Nov 2026
+                </span>
+              </div>
+              <p className="text-foreground/80 text-xs sm:text-sm">
+                B.Tech in Information Technology
+              </p>
+              <p className="text-muted-foreground font-medium text-xs sm:text-sm">
+                CGPA: 8.2/10
+              </p>
+            </div>
+            <div className="space-y-1">
+              <div className="flex items-start justify-between gap-2">
+                <h3 className="font-semibold text-foreground leading-snug text-sm sm:text-base">
+                  Kongu Vellalar Mat. HSS
+                </h3>
+                <span className="text-muted-foreground text-[11px] sm:text-xs whitespace-nowrap">
+                  May 2021 - May 2022
+                </span>
+              </div>
+              <p className="text-foreground/80 text-xs sm:text-sm">
+                Senior Secondary School
+              </p>
+              <p className="text-muted-foreground font-medium text-xs sm:text-sm">
+                Percentage: 87%
+              </p>
+            </div>
+          </div>
         </Card>
         <Card className="col-span-1 md:col-span-2 lg:col-span-4 md:row-span-2 h-40 md:h-auto flex flex-col p-3 sm:p-4 lg:p-5 transition-all duration-300 hover:shadow-xl group">
-          <h2 className="text-lg sm:text-xl lg:text-2xl font-bold font-mono mb-2 group-hover:text-primary transition-colors">
+          <h2 className="text-xl sm:text-2xl lg:text-3xl font-bold font-mono mb-2 group-hover:text-primary transition-colors">
             Key Skills
           </h2>
           <div className="flex-1 flex items-center justify-center text-muted-foreground"></div>
         </Card>
-        <Card className="col-span-1 md:col-span-2 lg:col-span-2 md:row-span-2 h-40 md:h-auto flex flex-col p-3 sm:p-4 lg:p-5 transition-all duration-300 hover:shadow-xl group cursor-pointer relative">
-          <h2 className="text-lg sm:text-xl lg:text-2xl font-bold font-mono mb-2 group-hover:text-primary transition-colors">
-            Blogs
-          </h2>
-          <div className="flex-1 flex items-center justify-center text-muted-foreground"></div>
-          <CircleArrowOutUpRight
-            className="absolute bottom-3 right-3 sm:bottom-4 sm:right-4 lg:bottom-5 lg:right-5 opacity-50 group-hover:opacity-100 transition-opacity"
-            size={20}
-            strokeWidth={2}
-          />
-        </Card>
+
         {/* FUTURE CARDS:
             Just add a new <Card> here. 
             - For a wide card: add className="col-span-2"
