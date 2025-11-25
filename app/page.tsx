@@ -1,10 +1,18 @@
 import { Card } from "@/components/ui/card";
-import { FileText, Github, Linkedin, Mail } from "lucide-react";
+import {
+  FileText,
+  Github,
+  Linkedin,
+  Mail,
+  CircleArrowOutUpRight,
+} from "lucide-react";
 import Image from "next/image";
+import { GridBackground } from "@/components/grid-background";
 
 export default function Home() {
   return (
-    <main className="h-screen max-w-[1310px] mx-auto px-3 sm:px-4 lg:px-6 py-3 sm:py-4 lg:py-6 overflow-hidden">
+    <main className="h-screen max-w-[1310px] mx-auto px-3 sm:px-4 lg:px-6 py-3 sm:py-4 lg:py-6 overflow-hidden relative">
+      <GridBackground />
       {/* GRID CONTAINER:
         - Mobile: 1 column (auto height)
         - Tablet (md): 4 columns
@@ -12,7 +20,7 @@ export default function Home() {
         - Compact spacing to fit in viewport
         - Fixed heights for single screen display
       */}
-      <div className="grid grid-cols-1 md:grid-cols-4 lg:grid-cols-8 gap-2 sm:gap-3 lg:gap-4 w-full h-full lg:grid-rows-[repeat(6,1fr)]">
+      <div className="grid grid-cols-1 md:grid-cols-4 lg:grid-cols-8 gap-2 sm:gap-3 lg:gap-4 w-full h-full lg:grid-rows-[repeat(6,1fr)] relative z-10">
         {/* HERO CARD: Profile Picture - 2x2 on md+, full width on mobile */}
         <Card className="col-span-1 md:col-span-2 lg:col-span-2 md:row-span-2 overflow-hidden p-0 group transition-all duration-300 hover:shadow-xl h-48 md:h-auto">
           <div className="relative w-full h-full">
@@ -90,11 +98,16 @@ export default function Home() {
           </h2>
           <div className="flex-1 flex items-center justify-center text-muted-foreground"></div>
         </Card>
-        <Card className="col-span-1 md:col-span-2 lg:col-span-4 md:row-span-2 h-40 md:h-auto flex flex-col p-3 sm:p-4 lg:p-5 transition-all duration-300 hover:shadow-xl group">
+        <Card className="col-span-1 md:col-span-2 lg:col-span-4 md:row-span-2 h-40 md:h-auto flex flex-col p-3 sm:p-4 lg:p-5 transition-all duration-300 hover:shadow-xl group cursor-pointer relative">
           <h2 className="text-lg sm:text-xl lg:text-2xl font-bold font-mono mb-2 group-hover:text-primary transition-colors">
             Projects
           </h2>
           <div className="flex-1 flex items-center justify-center text-muted-foreground"></div>
+          <CircleArrowOutUpRight
+            className="absolute bottom-3 right-3 sm:bottom-4 sm:right-4 lg:bottom-5 lg:right-5 opacity-50 group-hover:opacity-100 transition-opacity"
+            size={20}
+            strokeWidth={2}
+          />
         </Card>
 
         {/* 3rd Row: Education, Key Skills, and Blogs */}
@@ -110,11 +123,16 @@ export default function Home() {
           </h2>
           <div className="flex-1 flex items-center justify-center text-muted-foreground"></div>
         </Card>
-        <Card className="col-span-1 md:col-span-2 lg:col-span-2 md:row-span-2 h-40 md:h-auto flex flex-col p-3 sm:p-4 lg:p-5 transition-all duration-300 hover:shadow-xl group">
+        <Card className="col-span-1 md:col-span-2 lg:col-span-2 md:row-span-2 h-40 md:h-auto flex flex-col p-3 sm:p-4 lg:p-5 transition-all duration-300 hover:shadow-xl group cursor-pointer relative">
           <h2 className="text-lg sm:text-xl lg:text-2xl font-bold font-mono mb-2 group-hover:text-primary transition-colors">
             Blogs
           </h2>
           <div className="flex-1 flex items-center justify-center text-muted-foreground"></div>
+          <CircleArrowOutUpRight
+            className="absolute bottom-3 right-3 sm:bottom-4 sm:right-4 lg:bottom-5 lg:right-5 opacity-50 group-hover:opacity-100 transition-opacity"
+            size={20}
+            strokeWidth={2}
+          />
         </Card>
         {/* FUTURE CARDS:
             Just add a new <Card> here. 
