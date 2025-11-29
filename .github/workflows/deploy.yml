@@ -1,6 +1,8 @@
 name: Build and Deploy to GitHub Pages
 
 on:
+  repository_dispatch:
+    types: [content-update-ready]
   # Allows external repos to trigger this build
   workflow_dispatch:
     inputs:
