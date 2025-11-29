@@ -76,26 +76,28 @@ function Projects() {
     <div className="h-screen overflow-y-auto">
       <GridBackground />
 
-      {/* HERO SECTION */}
-      <section className="w-full pt-20 pb-12 flex flex-col items-center justify-center gap-4">
-        <h1 className="text-5xl sm:text-6xl font-mono font-bold">Projects</h1>
-        <p className="text-muted-foreground text-center max-w-md px-4">
+      {/* HERO SECTION - Golden Ratio: pt-[5.5rem] (89px), pb-[3.4rem] (55px), gap-[1.3rem] (21px) */}
+      <section className="w-full pt-[5.5rem] pb-[3.4rem] flex flex-col items-center justify-center gap-[1.3rem]">
+        <h1 className="text-[2.625rem] sm:text-[4.25rem] font-mono font-bold">
+          Projects
+        </h1>
+        <p className="text-muted-foreground text-center max-w-md px-[1.3rem] text-base sm:text-lg">
           A collection of projects I&apos;ve built. Click on any project to
           learn more.
         </p>
       </section>
 
-      {/* PROJECTS LIST */}
-      <section className="max-w-[1100px] mx-auto px-4 sm:px-6 pb-16">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
+      {/* PROJECTS LIST - Golden Ratio: pb-[5.5rem] (89px), gap-[2.1rem] (34px) */}
+      <section className="max-w-[1100px] mx-auto px-[1.3rem] sm:px-[2.1rem] pb-[5.5rem]">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-[1.3rem] sm:gap-[2.1rem]">
           {projects.map((project) => (
             <Card
               key={project.id}
               className="group cursor-pointer border-muted/40 bg-card/80 hover:border-primary/30 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg overflow-hidden"
               onClick={() => setSelectedProject(project)}
             >
-              {/* Screenshot */}
-              <div className="relative w-full h-48 bg-muted/20 overflow-hidden">
+              {/* Screenshot - Golden Ratio: h-[12rem] (192px ≈ 89×2.16) */}
+              <div className="relative w-full h-[12rem] bg-muted/20 overflow-hidden">
                 <Image
                   src={project.image}
                   alt={project.title}
@@ -103,40 +105,40 @@ function Projects() {
                   className="object-cover transition-transform duration-500 group-hover:scale-105"
                 />
                 <div className="absolute inset-0 bg-linear-to-t from-card via-transparent to-transparent" />
-                <div className="absolute top-3 right-3 flex gap-2">
-                  <span className="px-2 py-1 rounded-md bg-background/80 backdrop-blur-sm text-[10px] sm:text-xs font-medium text-muted-foreground border border-border/50">
+                <div className="absolute top-[0.8rem] right-[0.8rem] flex gap-[0.5rem]">
+                  <span className="px-[0.5rem] py-[0.3rem] rounded-md bg-background/80 backdrop-blur-sm text-[0.625rem] sm:text-[0.75rem] font-medium text-muted-foreground border border-border/50">
                     {project.category}
                   </span>
                 </div>
               </div>
 
-              {/* Content */}
-              <div className="p-4 sm:p-5">
-                <div className="flex items-start justify-between gap-3 mb-2">
-                  <h2 className="text-lg sm:text-xl font-bold font-mono group-hover:text-primary transition-colors duration-200">
+              {/* Content - Golden Ratio: p-[1.3rem] (21px), mb-[0.8rem] (13px), mb-[1.3rem] (21px) */}
+              <div className="p-[1.3rem] sm:p-[1.6rem]">
+                <div className="flex items-start justify-between gap-[0.8rem] mb-[0.5rem]">
+                  <h2 className="text-[1.125rem] sm:text-[1.25rem] font-bold font-mono group-hover:text-primary transition-colors duration-200">
                     {project.title}
                   </h2>
-                  <span className="text-xs text-muted-foreground whitespace-nowrap flex items-center gap-1">
+                  <span className="text-[0.75rem] text-muted-foreground whitespace-nowrap flex items-center gap-[0.3rem]">
                     <Calendar size={12} />
                     {project.date}
                   </span>
                 </div>
 
-                <p className="text-sm text-muted-foreground mb-4 line-clamp-2">
+                <p className="text-[0.875rem] text-muted-foreground mb-[1.3rem] line-clamp-2">
                   {project.shortDescription}
                 </p>
 
-                <div className="flex flex-wrap gap-1.5">
+                <div className="flex flex-wrap gap-[0.5rem]">
                   {project.tags.slice(0, 3).map((tag) => (
                     <span
                       key={tag}
-                      className="px-2 py-0.5 rounded-md bg-primary/5 text-primary text-[10px] sm:text-xs font-medium border border-primary/10"
+                      className="px-[0.5rem] py-[0.2rem] rounded-md bg-primary/5 text-primary text-[0.625rem] sm:text-[0.75rem] font-medium border border-primary/10"
                     >
                       {tag}
                     </span>
                   ))}
                   {project.tags.length > 3 && (
-                    <span className="px-2 py-0.5 rounded-md bg-muted/50 text-muted-foreground text-[10px] sm:text-xs font-medium">
+                    <span className="px-[0.5rem] py-[0.2rem] rounded-md bg-muted/50 text-muted-foreground text-[0.625rem] sm:text-[0.75rem] font-medium">
                       +{project.tags.length - 3}
                     </span>
                   )}
@@ -152,11 +154,11 @@ function Projects() {
         open={selectedProject !== null}
         onOpenChange={(open) => !open && setSelectedProject(null)}
       >
-        <DialogContent className="min-w-2xl max-h-[90vh] overflow-y-auto overflow-x-hidden border-muted/40 bg-card">
+        <DialogContent className="min-w-3xl max-h-[90vh] overflow-y-auto overflow-x-hidden border-muted/40 bg-card">
           {selectedProject && (
             <>
-              {/* Screenshot */}
-              <div className="relative w-full h-56 sm:h-64 bg-muted/20 rounded-lg overflow-hidden -mt-2">
+              {/* Screenshot - Golden Ratio: h-[13rem] sm:h-[16rem] */}
+              <div className="relative w-full h-[13rem] sm:h-[16rem] bg-muted/20 rounded-lg overflow-hidden -mt-[0.5rem]">
                 <Image
                   src={selectedProject.image}
                   alt={selectedProject.title}
@@ -166,24 +168,24 @@ function Projects() {
                 <div className="absolute inset-0 bg-linear-to-t from-card via-transparent to-transparent" />
               </div>
 
-              <DialogHeader className="gap-3">
-                <div className="flex items-start justify-between gap-4">
-                  <DialogTitle className="text-2xl sm:text-3xl font-mono">
+              <DialogHeader className="gap-[0.8rem]">
+                <div className="flex items-center justify-between gap-[1.3rem]">
+                  <DialogTitle className="text-[1.25rem] sm:text-[1.625rem] font-mono max-w-[70%]">
                     {selectedProject.title}
                   </DialogTitle>
-                  <div className="flex items-center gap-2 shrink-0">
+                  <div className="flex items-center gap-[0.5rem] shrink-0">
                     {selectedProject.github && (
                       <Tooltip content="View Code">
                         <a
                           href={selectedProject.github}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="flex h-9 w-9 items-center justify-center rounded-lg bg-muted/50 hover:bg-primary/10 transition-colors"
+                          className="flex h-[2.1rem] w-[2.1rem] items-center justify-center rounded-lg bg-muted/50 hover:bg-primary/10 transition-colors"
                           onClick={(e) => e.stopPropagation()}
                         >
                           <Github
                             className="text-muted-foreground hover:text-primary transition-colors"
-                            size={18}
+                            size={16}
                           />
                         </a>
                       </Tooltip>
@@ -194,12 +196,12 @@ function Projects() {
                           href={selectedProject.demo}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="flex h-9 w-9 items-center justify-center rounded-lg bg-muted/50 hover:bg-primary/10 transition-colors"
+                          className="flex h-[2.1rem] w-[2.1rem] items-center justify-center rounded-lg bg-muted/50 hover:bg-primary/10 transition-colors"
                           onClick={(e) => e.stopPropagation()}
                         >
                           <ExternalLink
                             className="text-muted-foreground hover:text-primary transition-colors"
-                            size={18}
+                            size={16}
                           />
                         </a>
                       </Tooltip>
@@ -207,35 +209,35 @@ function Projects() {
                   </div>
                 </div>
 
-                <div className="flex items-center gap-3 text-sm text-muted-foreground">
-                  <span className="flex items-center gap-1.5">
+                <div className="flex items-center gap-[0.8rem] text-[0.875rem] text-muted-foreground">
+                  <span className="flex items-center gap-[0.3rem]">
                     <Folder size={14} />
                     {selectedProject.category}
                   </span>
-                  <span className="flex items-center gap-1.5">
+                  <span className="flex items-center gap-[0.3rem]">
                     <Calendar size={14} />
                     {selectedProject.date}
                   </span>
                 </div>
 
-                <DialogDescription className="text-base leading-relaxed">
+                <DialogDescription className="text-[0.9375rem] leading-[1.618]">
                   {selectedProject.fullDescription}
                 </DialogDescription>
               </DialogHeader>
 
-              {/* Features */}
+              {/* Features - Golden Ratio: space-y-[0.8rem] (13px), space-y-[0.5rem] (8px) */}
               {selectedProject.features && (
-                <div className="space-y-3">
-                  <h3 className="text-sm font-semibold text-foreground">
+                <div className="space-y-[0.8rem]">
+                  <h3 className="text-[0.875rem] font-semibold text-foreground">
                     Key Features
                   </h3>
-                  <ul className="space-y-2">
+                  <ul className="space-y-[0.5rem]">
                     {selectedProject.features.map((feature, index) => (
                       <li
                         key={index}
-                        className="flex items-start gap-2 text-sm text-muted-foreground"
+                        className="flex items-start gap-[0.5rem] text-[0.875rem] text-muted-foreground"
                       >
-                        <span className="h-1.5 w-1.5 rounded-full bg-primary mt-2 shrink-0" />
+                        <span className="h-[0.375rem] w-[0.375rem] rounded-full bg-primary mt-[0.5rem] shrink-0" />
                         {feature}
                       </li>
                     ))}
@@ -243,16 +245,16 @@ function Projects() {
                 </div>
               )}
 
-              {/* Tags */}
-              <div className="space-y-3">
-                <h3 className="text-sm font-semibold text-foreground">
+              {/* Tags - Golden Ratio: space-y-[0.8rem] (13px), gap-[0.5rem] (8px) */}
+              <div className="space-y-[0.8rem]">
+                <h3 className="text-[0.875rem] font-semibold text-foreground">
                   Technologies
                 </h3>
-                <div className="flex flex-wrap gap-2">
+                <div className="flex flex-wrap gap-[0.5rem]">
                   {selectedProject.tags.map((tag) => (
                     <span
                       key={tag}
-                      className="px-3 py-1 rounded-md bg-primary/5 text-primary text-sm font-medium border border-primary/10"
+                      className="px-[0.8rem] py-[0.3rem] rounded-md bg-primary/5 text-primary text-[0.875rem] font-medium border border-primary/10"
                     >
                       {tag}
                     </span>

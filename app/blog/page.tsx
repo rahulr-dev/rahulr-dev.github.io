@@ -74,17 +74,19 @@ function Blogs() {
     <div className="h-screen overflow-y-auto">
       <GridBackground />
 
-      {/* HERO SECTION */}
-      <section className="w-full pt-20 pb-12 flex flex-col items-center justify-center gap-4">
-        <h1 className="text-5xl sm:text-6xl font-mono font-bold">Blog</h1>
-        <p className="text-muted-foreground text-center max-w-md px-4">
+      {/* HERO SECTION - Golden Ratio: pt-[5.5rem] (89px), pb-[3.4rem] (55px), gap-[1.3rem] (21px) */}
+      <section className="w-full pt-[5.5rem] pb-[3.4rem] flex flex-col items-center justify-center gap-[1.3rem]">
+        <h1 className="text-[2.625rem] sm:text-[4.25rem] font-mono font-bold">
+          Blog
+        </h1>
+        <p className="text-muted-foreground text-center max-w-md px-[1.3rem] text-base sm:text-lg">
           Thoughts, tutorials, and insights on software development.
         </p>
       </section>
 
-      {/* BLOG POSTS LIST */}
-      <section className="max-w-[900px] mx-auto px-4 sm:px-6 pb-16">
-        <div className="flex flex-col gap-4 sm:gap-6">
+      {/* BLOG POSTS LIST - Golden Ratio: pb-[5.5rem] (89px), gap-[1.3rem]/[2.1rem] */}
+      <section className="max-w-[900px] mx-auto px-[1.3rem] sm:px-[2.1rem] pb-[5.5rem]">
+        <div className="flex flex-col gap-[1.3rem] sm:gap-[2.1rem]">
           {blogPosts.map((post) => (
             <Card
               key={post.id}
@@ -92,8 +94,8 @@ function Blogs() {
               onClick={() => setSelectedPost(post)}
             >
               <div className="flex flex-col md:flex-row">
-                {/* Thumbnail */}
-                <div className="relative w-full md:w-64 h-48 md:h-auto md:min-h-[180px] bg-muted/20 overflow-hidden shrink-0">
+                {/* Thumbnail - Golden Ratio height */}
+                <div className="relative w-full md:w-64 h-[12rem] md:h-auto md:min-h-[11rem] bg-muted/20 overflow-hidden shrink-0">
                   <Image
                     src={post.image}
                     alt={post.title}
@@ -103,48 +105,48 @@ function Blogs() {
                   <div className="absolute inset-0 bg-linear-to-t md:bg-linear-to-r from-card via-transparent to-transparent" />
                 </div>
 
-                {/* Content */}
-                <div className="flex flex-col justify-between p-5 sm:p-6 flex-1">
+                {/* Content - Golden Ratio padding and spacing */}
+                <div className="flex flex-col justify-between p-[1.3rem] sm:p-[1.6rem] flex-1">
                   <div>
                     {/* Meta */}
-                    <div className="flex items-center gap-3 text-xs text-muted-foreground mb-3">
-                      <span className="px-2 py-0.5 rounded-md bg-primary/10 text-primary font-medium">
+                    <div className="flex items-center gap-[0.8rem] text-[0.75rem] text-muted-foreground mb-[0.8rem]">
+                      <span className="px-[0.5rem] py-[0.2rem] rounded-md bg-primary/10 text-primary font-medium">
                         {post.category}
                       </span>
-                      <span className="flex items-center gap-1">
+                      <span className="flex items-center gap-[0.3rem]">
                         <Calendar size={12} />
                         {post.date}
                       </span>
-                      <span className="flex items-center gap-1">
+                      <span className="flex items-center gap-[0.3rem]">
                         <Clock size={12} />
                         {post.readTime}
                       </span>
                     </div>
 
                     {/* Title */}
-                    <h2 className="text-xl sm:text-2xl font-bold font-mono mb-3 group-hover:text-primary transition-colors duration-200 line-clamp-2">
+                    <h2 className="text-[1.25rem] sm:text-[1.625rem] font-bold font-mono mb-[0.8rem] group-hover:text-primary transition-colors duration-200 line-clamp-2">
                       {post.title}
                     </h2>
 
                     {/* Excerpt */}
-                    <p className="text-sm text-muted-foreground mb-4 line-clamp-2">
+                    <p className="text-[0.875rem] text-muted-foreground mb-[1.3rem] line-clamp-2">
                       {post.excerpt}
                     </p>
                   </div>
 
                   {/* Footer */}
-                  <div className="flex items-center justify-between gap-4">
-                    <div className="flex flex-wrap gap-1.5 items-center">
+                  <div className="flex items-center justify-between gap-[1.3rem]">
+                    <div className="flex flex-wrap gap-[0.5rem] items-center">
                       {post.tags.map((tag) => (
                         <span
                           key={tag}
-                          className="px-2 py-0.5 rounded-md bg-muted/50 text-muted-foreground text-[10px] sm:text-xs font-medium"
+                          className="px-[0.5rem] py-[0.2rem] rounded-md bg-muted/50 text-muted-foreground text-[0.625rem] sm:text-[0.75rem] font-medium"
                         >
                           {tag}
                         </span>
                       ))}
                     </div>
-                    <span className="flex items-center gap-1 text-sm text-primary font-medium opacity-0 group-hover:opacity-100 transition-opacity duration-200 shrink-0">
+                    <span className="flex items-center gap-[0.3rem] text-[0.875rem] text-primary font-medium opacity-0 group-hover:opacity-100 transition-opacity duration-200 shrink-0">
                       Read more
                       <ArrowRight size={14} />
                     </span>
@@ -164,8 +166,8 @@ function Blogs() {
         <DialogContent className="max-w-3xl max-h-[90vh] overflow-y-auto overflow-x-hidden border-muted/40 bg-card">
           {selectedPost && (
             <>
-              {/* Cover Image */}
-              <div className="relative w-full h-48 sm:h-56 bg-muted/20 rounded-lg overflow-hidden -mt-2">
+              {/* Cover Image - Golden Ratio height */}
+              <div className="relative w-full h-[12rem] sm:h-[14rem] bg-muted/20 rounded-lg overflow-hidden -mt-[0.5rem]">
                 <Image
                   src={selectedPost.image}
                   alt={selectedPost.title}
@@ -175,34 +177,34 @@ function Blogs() {
                 <div className="absolute inset-0 bg-linear-to-t from-card via-transparent to-transparent" />
               </div>
 
-              <DialogHeader className="gap-4">
+              <DialogHeader className="gap-[1.3rem]">
                 {/* Meta */}
-                <div className="flex items-center gap-3 text-sm text-muted-foreground">
-                  <span className="px-2.5 py-1 rounded-md bg-primary/10 text-primary font-medium">
+                <div className="flex items-center gap-[0.8rem] text-[0.875rem] text-muted-foreground">
+                  <span className="px-[0.6rem] py-[0.3rem] rounded-md bg-primary/10 text-primary font-medium">
                     {selectedPost.category}
                   </span>
-                  <span className="flex items-center gap-1.5">
+                  <span className="flex items-center gap-[0.3rem]">
                     <Calendar size={14} />
                     {selectedPost.date}
                   </span>
-                  <span className="flex items-center gap-1.5">
+                  <span className="flex items-center gap-[0.3rem]">
                     <Clock size={14} />
                     {selectedPost.readTime}
                   </span>
                 </div>
 
-                <DialogTitle className="text-2xl sm:text-3xl font-mono leading-tight">
+                <DialogTitle className="text-[1.625rem] sm:text-[2rem] font-mono leading-tight">
                   {selectedPost.title}
                 </DialogTitle>
 
-                <DialogDescription className="text-base leading-relaxed text-foreground/80">
+                <DialogDescription className="text-[0.9375rem] leading-[1.618] text-foreground/80">
                   {selectedPost.excerpt}
                 </DialogDescription>
               </DialogHeader>
 
               {/* Content */}
-              <div className="space-y-4 pt-2">
-                <div className="flex items-center gap-2 text-sm text-muted-foreground">
+              <div className="space-y-[1.3rem] pt-[0.5rem]">
+                <div className="flex items-center gap-[0.5rem] text-[0.875rem] text-muted-foreground">
                   <BookOpen size={16} />
                   <span>Article Content</span>
                 </div>
@@ -212,7 +214,7 @@ function Blogs() {
                     .map((paragraph, index) => (
                       <p
                         key={index}
-                        className="text-sm sm:text-base text-foreground/80 leading-relaxed mb-4"
+                        className="text-[0.875rem] sm:text-[0.9375rem] text-foreground/80 leading-[1.618] mb-[1.3rem]"
                       >
                         {paragraph}
                       </p>
@@ -220,14 +222,16 @@ function Blogs() {
                 </div>
               </div>
 
-              {/* Tags */}
-              <div className="space-y-3 pt-4 border-t border-border/50">
-                <h3 className="text-sm font-semibold text-foreground">Tags</h3>
-                <div className="flex flex-wrap gap-2">
+              {/* Tags - Golden Ratio spacing */}
+              <div className="space-y-[0.8rem] pt-[1.3rem] border-t border-border/50">
+                <h3 className="text-[0.875rem] font-semibold text-foreground">
+                  Tags
+                </h3>
+                <div className="flex flex-wrap gap-[0.5rem]">
                   {selectedPost.tags.map((tag) => (
                     <span
                       key={tag}
-                      className="px-3 py-1 rounded-md bg-primary/5 text-primary text-sm font-medium border border-primary/10"
+                      className="px-[0.8rem] py-[0.3rem] rounded-md bg-primary/5 text-primary text-[0.875rem] font-medium border border-primary/10"
                     >
                       {tag}
                     </span>
