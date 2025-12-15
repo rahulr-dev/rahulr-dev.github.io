@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { GridBackground } from "@/components/grid-background";
 import { Card } from "@/components/ui/card";
 import {
@@ -10,7 +10,14 @@ import {
   DialogTitle,
   DialogDescription,
 } from "@/components/ui/dialog";
-import { Github, ExternalLink, Calendar, Folder } from "lucide-react";
+import {
+  Github,
+  ExternalLink,
+  Calendar,
+  Folder,
+  ChevronLeft,
+  ChevronRight,
+} from "lucide-react";
 import { Tooltip } from "@/components/ui/tooltip";
 import Image from "next/image";
 
@@ -23,6 +30,7 @@ interface Project {
   github?: string;
   demo?: string;
   image: string;
+  images?: string[];
   date: string;
   category: string;
   features?: string[];
@@ -38,7 +46,13 @@ const projects: Project[] = [
       "Architected and deployed a blockchain-based credential verification system using Solidity and Ethereum, enabling secure certificate issuance and verification for educational institutions. The system ensures tamper-proof credentials that can be independently verified on the blockchain.",
     tags: ["React", "HTML", "CSS", "Node.js", "Solidity", "Ethereum"],
     github: "https://github.com/rahul-gamedev/dcis",
-    image: "/mac.png",
+    image: "/DCIS (1).png",
+    images: [
+      "/DCIS (1).png",
+      "/DCIS (2).png",
+      "/DCIS (3).png",
+      "/DCIS (4).png",
+    ],
     date: "Oct 2023 – Jan 2024",
     category: "Blockchain",
     features: [
@@ -57,7 +71,8 @@ const projects: Project[] = [
       "Developed a puzzle game in Unity using C#, applying Object-Oriented Programming (OOP) principles to manage complex game logic and character behaviors. Published the game project within a 2-week timeline, meeting all development goals.",
     tags: ["C#", "Unity 3D", "Blender", "Adobe Photoshop", "OOP"],
     github: "https://github.com/rahul-gamedev/sound-game",
-    image: "/mac.png",
+    image: "/SC cover.jpg",
+    images: ["/SC cover.jpg", "/SC (1).png", "/SC (2).png", "/SC (3).png"],
     date: "Dec 2023 – Jan 2024",
     category: "Game Dev",
     features: [
@@ -71,6 +86,21 @@ const projects: Project[] = [
 
 function Projects() {
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
+  const [selectedImageIndex, setSelectedImageIndex] = useState(0);
+
+  const selectedImages = useMemo(() => {
+    if (!selectedProject) return [] as string[];
+    return selectedProject.images?.length
+      ? selectedProject.images
+      : [selectedProject.image];
+  }, [selectedProject]);
+
+  const selectedImageSrc =
+    selectedImages[selectedImageIndex] ?? selectedProject?.image;
+
+  useEffect(() => {
+    setSelectedImageIndex(0);
+  }, [selectedProject?.id]);
 
   return (
     <div className="h-screen overflow-y-auto">
@@ -93,16 +123,21 @@ function Projects() {
           {projects.map((project) => (
             <Card
               key={project.id}
-              className="group cursor-pointer border-muted/40 bg-card/80 hover:border-primary/30 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg overflow-hidden"
-              onClick={() => setSelectedProject(project)}
+              className="group cursor-pointer border-muted/40 bg-card/80 hover:border-primary/30 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg overflow-hidden py-0 gap-0"
+              onClick={() => {
+                setSelectedProject(project);
+                setSelectedImageIndex(0);
+              }}
             >
               {/* Screenshot - Golden Ratio: h-[12rem] (192px ≈ 89×2.16) */}
-              <div className="relative w-full h-[12rem] bg-muted/20 overflow-hidden">
+              <div className="relative w-full h-[14rem] bg-muted/20 overflow-hidden">
                 <Image
-                  src={project.image}
+                  src={project.images?.[0] ?? project.image}
                   alt={project.title}
                   fill
-                  className="object-cover transition-transform duration-500 group-hover:scale-105"
+                  className="object-cover transition-transform duration-500 group-hover:scale-105 transform-gpu"
+                  style={{ willChange: "transform" }}
+                  sizes="(max-width: 768px) 100vw, 50vw"
                 />
                 <div className="absolute inset-0 bg-linear-to-t from-card via-transparent to-transparent" />
                 <div className="absolute top-[0.8rem] right-[0.8rem] flex gap-[0.5rem]">
@@ -152,20 +187,56 @@ function Projects() {
       {/* PROJECT DETAIL DIALOG */}
       <Dialog
         open={selectedProject !== null}
-        onOpenChange={(open) => !open && setSelectedProject(null)}
+        onOpenChange={(open) => {
+          if (!open) {
+            setSelectedProject(null);
+            setSelectedImageIndex(0);
+          }
+        }}
       >
         <DialogContent className="min-w-3xl max-h-[90vh] overflow-y-auto overflow-x-hidden border-muted/40 bg-card">
           {selectedProject && (
             <>
               {/* Screenshot - Golden Ratio: h-[13rem] sm:h-[16rem] */}
-              <div className="relative w-full h-[13rem] sm:h-[16rem] bg-muted/20 rounded-lg overflow-hidden -mt-[0.5rem]">
+              <div className="relative w-full h-[24rem] sm:h-[24rem] bg-muted/20 rounded-lg overflow-hidden -mt-[0.5rem]">
                 <Image
-                  src={selectedProject.image}
+                  src={selectedImageSrc ?? selectedProject.image}
                   alt={selectedProject.title}
                   fill
-                  className="object-cover"
+                  className="object-cover transform-gpu"
+                  style={{ willChange: "transform" }}
+                  sizes="(max-width: 768px) 100vw, 768px"
                 />
                 <div className="absolute inset-0 bg-linear-to-t from-card via-transparent to-transparent" />
+
+                {selectedImages.length > 1 && (
+                  <>
+                    <button
+                      type="button"
+                      aria-label="Previous image"
+                      className="absolute left-[0.6rem] top-1/2 -translate-y-1/2 flex h-[2.25rem] w-[2.25rem] items-center justify-center rounded-lg bg-background/70 hover:bg-background/90 border border-border/60 backdrop-blur-sm transition-colors"
+                      onClick={() =>
+                        setSelectedImageIndex((i) =>
+                          (i - 1 + selectedImages.length) % selectedImages.length
+                        )
+                      }
+                    >
+                      <ChevronLeft className="text-foreground" size={16} />
+                    </button>
+                    <button
+                      type="button"
+                      aria-label="Next image"
+                      className="absolute right-[0.6rem] top-1/2 -translate-y-1/2 flex h-[2.25rem] w-[2.25rem] items-center justify-center rounded-lg bg-background/70 hover:bg-background/90 border border-border/60 backdrop-blur-sm transition-colors"
+                      onClick={() =>
+                        setSelectedImageIndex((i) =>
+                          (i + 1) % selectedImages.length
+                        )
+                      }
+                    >
+                      <ChevronRight className="text-foreground" size={16} />
+                    </button>
+                  </>
+                )}
               </div>
 
               <DialogHeader className="gap-[0.8rem]">
@@ -242,6 +313,33 @@ function Projects() {
                       </li>
                     ))}
                   </ul>
+                </div>
+              )}
+
+              {/* Carousel thumbnails */}
+              {selectedImages.length > 1 && (
+                <div className="grid grid-cols-3 gap-[0.8rem]">
+                  {selectedImages.map((src, index) => (
+                    <button
+                      key={src}
+                      type="button"
+                      className={`relative aspect-video rounded-md overflow-hidden bg-muted/20 border transition-colors ${
+                        index === selectedImageIndex
+                          ? "border-primary/60"
+                          : "border-border/60 hover:border-primary/30"
+                      }`}
+                      onClick={() => setSelectedImageIndex(index)}
+                      aria-label={`View image ${index + 1}`}
+                    >
+                      <Image
+                        src={src}
+                        alt={`${selectedProject.title} screenshot ${index + 1}`}
+                        fill
+                        className="object-cover"
+                        sizes="(max-width: 640px) 33vw, 200px"
+                      />
+                    </button>
+                  ))}
                 </div>
               )}
 

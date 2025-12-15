@@ -23,22 +23,13 @@ export default function Home() {
           <Card className="col-span-1 md:col-span-2 lg:col-span-2 md:row-span-2 overflow-hidden p-0 group hover:shadow-lg h-48 md:h-auto border-muted/40 bg-card/80">
             <div className="relative w-full h-full">
               <Image
-                className="select-none object-cover w-full h-full transition-transform duration-500 group-hover:scale-105 will-change-transform"
+                className="select-none object-cover w-full h-full transition-transform duration-250 group-hover:scale-105 will-change-transform"
                 src="/profile.jpg"
                 alt="Profile Picture"
                 width={400}
                 height={400}
                 priority
               />
-              <div className="absolute bottom-10 left-2 right-2 sm:bottom-3 sm:left-3 sm:right-3 bg-background/90 border border-border/40 p-1.5 sm:p-2 rounded-lg flex items-center gap-2 shadow-sm z-10">
-                <div className="relative flex h-2 w-2 sm:h-2.5 sm:w-2.5 shrink-0">
-                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
-                  <span className="relative inline-flex rounded-full h-2 w-2 sm:h-2.5 sm:w-2.5 bg-green-500"></span>
-                </div>
-                <span className="text-[10px] sm:text-xs font-medium text-foreground/90 whitespace-nowrap">
-                  Open to work
-                </span>
-              </div>
             </div>
           </Card>
         </Tooltip>
