@@ -68,7 +68,9 @@ export default function Home() {
             </Tooltip>
             <Tooltip content="LinkedIn">
               <a
-                href="#"
+                href="https://www.linkedin.com/in/rahulramesh-/"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="flex h-11 w-11 items-center justify-center rounded-lg hover:bg-primary/10 transition-colors group"
                 aria-label="LinkedIn"
               >
@@ -81,7 +83,9 @@ export default function Home() {
             </Tooltip>
             <Tooltip content="Email">
               <a
-                href="mailto:hello@rahulr.dev"
+                href="mailto:rahul-ramesh@hotmail.com"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="flex h-11 w-11 items-center justify-center rounded-lg hover:bg-primary/10 transition-colors group"
                 aria-label="Email"
               >
@@ -94,7 +98,9 @@ export default function Home() {
             </Tooltip>
             <Tooltip content="Resume">
               <a
-                href="/resume.pdf"
+                href="https://drive.google.com/file/d/1_cvVJ86ysHvRvo2VrtqIczA9D2Y3B6yk/view?usp=drive_link"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="flex h-11 w-11 items-center justify-center rounded-lg hover:bg-primary/10 transition-colors group"
                 aria-label="Resume"
               >
