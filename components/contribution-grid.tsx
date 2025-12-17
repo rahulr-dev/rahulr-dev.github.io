@@ -67,7 +67,7 @@ export const ContributionGrid = React.memo(function ContributionGrid({
   return (
     <>
       <Card
-        className="col-span-1 md:col-span-2 lg:col-span-2 md:row-span-1 flex flex-col items-center justify-center gap-2 p-3 sm:p-4 text-center border-muted/40 bg-card/80 hover:shadow-lg transition-shadow group"
+        className="col-span-1 min-[426px]:col-span-2 md:col-span-2 lg:col-span-2 md:row-span-1 flex flex-col items-center justify-center gap-2 p-3 sm:p-4 text-center border-muted/40 bg-card/80 hover:shadow-lg transition-shadow group"
         onMouseMove={handleMouseMove}
         onMouseEnter={handleMouseEnter}
         onMouseLeave={handleMouseLeave}

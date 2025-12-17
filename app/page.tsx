@@ -14,10 +14,10 @@ import Link from "next/link";
 
 export default function Home() {
   return (
-    <main className="h-screen max-w-[1200px] mx-auto px-3 sm:px-4 lg:px-6 py-3 sm:py-4 lg:py-6 overflow-hidden relative">
+    <main className="min-h-dvh lg:h-screen max-w-[1200px] mx-auto px-3 sm:px-4 lg:px-6 py-3 sm:py-4 lg:py-6 overflow-x-hidden overflow-y-auto lg:overflow-y-hidden relative">
       <GridBackground />
       {/* GRID CONTAINER */}
-      <div className="grid grid-cols-1 md:grid-cols-4 lg:grid-cols-8 gap-2 sm:gap-3 lg:gap-4 w-full h-full lg:grid-rows-[repeat(6,1fr)] relative z-10">
+      <div className="grid grid-cols-1 min-[426px]:grid-cols-2 md:grid-cols-4 lg:grid-cols-8 gap-2 sm:gap-3 lg:gap-4 w-full h-auto lg:h-full lg:grid-rows-[repeat(6,1fr)] relative z-10">
         {/* HERO CARD: Profile Picture */}
         <Tooltip content="Yup! That's me">
           <Card className="col-span-1 md:col-span-2 lg:col-span-2 md:row-span-2 overflow-hidden p-0 group hover:shadow-lg h-48 md:h-auto border-muted/40 bg-card/80">
@@ -49,7 +49,7 @@ export default function Home() {
           </div>
         </Card>
         {/* SOCIALS CARD */}
-        <Card className="col-span-1 md:col-span-2 lg:col-span-2 md:row-span-1 flex items-center justify-center p-4 border-muted/40 bg-card/80 hover:shadow-lg transition-shadow">
+        <Card className="col-span-1 min-[426px]:col-span-2 md:col-span-2 lg:col-span-2 md:row-span-1 flex items-center justify-center p-4 border-muted/40 bg-card/80 hover:shadow-lg transition-shadow">
           <div className="flex w-full flex-wrap items-center justify-center gap-3 sm:gap-4">
             <Tooltip content="GitHub">
               <a
@@ -118,7 +118,7 @@ export default function Home() {
         <GithubChartCard />
 
         {/* Experience Card */}
-        <Card className="col-span-1 md:col-span-2 lg:col-span-4 md:row-span-2 h-40 md:h-auto flex flex-col justify-between p-3 sm:p-4 lg:p-5 hover:shadow-lg group overflow-hidden transition-shadow">
+        <Card className="col-span-1 min-[426px]:col-span-2 md:col-span-2 lg:col-span-4 md:row-span-2 h-auto md:h-auto flex flex-col justify-between p-3 sm:p-4 lg:p-5 hover:shadow-lg group overflow-hidden transition-shadow">
           <h2 className="text-xl sm:text-2xl lg:text-3xl font-bold font-mono group-hover:text-primary transition-colors duration-200">
             Experience
           </h2>
@@ -154,7 +154,7 @@ export default function Home() {
         <Tooltip content="View Projects">
           <Link
             href="/projects"
-            className="col-span-1 md:col-span-2 lg:col-span-2 md:row-span-2 h-40 md:h-auto"
+            className="col-span-1 min-[426px]:col-span-2 md:col-span-2 lg:col-span-2 md:row-span-2 h-auto md:h-auto"
           >
             <Card className="h-full gap-0 flex flex-col justify-between p-3 sm:p-4 lg:p-5 hover:shadow-lg group cursor-pointer relative border-muted/40 bg-card/80 transition-all duration-200 hover:-translate-y-1">
               <h2 className="text-xl sm:text-2xl lg:text-3xl font-bold font-mono group-hover:text-primary transition-colors duration-200">
@@ -183,7 +183,7 @@ export default function Home() {
         <Tooltip content="Coming Soon">
           <Link
             href="#"
-            className="col-span-1 md:col-span-2 lg:col-span-2 md:row-span-2 h-40 md:h-auto"
+            className="col-span-1 min-[426px]:col-span-2 md:col-span-2 lg:col-span-2 md:row-span-2 h-auto md:h-auto"
           >
             <Card className="h-full flex flex-col p-3 sm:p-4 lg:p-5 hover:shadow-lg group cursor-pointer relative border-muted/40 bg-card/80 transition-all duration-200 hover:-translate-y-1 opacity-50">
               <div className="flex items-center justify-between mb-2">
@@ -206,7 +206,7 @@ export default function Home() {
         </Tooltip>
 
         {/* Education Card */}
-        <Card className="col-span-1 md:col-span-2 lg:col-span-4 md:row-span-2 h-40 md:h-auto flex flex-col justify-between p-3 sm:p-4 lg:p-5 hover:shadow-lg group overflow-hidden border-muted/40 bg-card/80 transition-shadow">
+        <Card className="col-span-1 min-[426px]:col-span-2 md:col-span-2 lg:col-span-4 md:row-span-2 h-auto md:h-auto flex flex-col justify-between p-3 sm:p-4 lg:p-5 hover:shadow-lg group overflow-hidden border-muted/40 bg-card/80 transition-shadow">
           <h2 className="text-xl sm:text-2xl lg:text-3xl font-bold font-mono group-hover:text-primary transition-colors duration-200">
             Education
           </h2>
@@ -231,7 +231,7 @@ export default function Home() {
         </Card>
 
         {/* Skills Card */}
-        <Card className="col-span-1 md:col-span-2 lg:col-span-4 md:row-span-2 h-40 md:h-auto flex flex-col p-3 sm:p-4 lg:p-5 hover:shadow-lg group border-muted/40 bg-card/80 overflow-hidden transition-shadow">
+        <Card className="col-span-1 min-[426px]:col-span-2 md:col-span-2 lg:col-span-4 md:row-span-2 h-auto md:h-auto flex flex-col p-3 sm:p-4 lg:p-5 hover:shadow-lg group border-muted/40 bg-card/80 overflow-hidden transition-shadow">
           <h2 className="text-xl sm:text-2xl lg:text-3xl font-bold font-mono mb-4 group-hover:text-primary transition-colors duration-200 z-10">
             Skills
           </h2>
