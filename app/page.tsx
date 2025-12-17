@@ -180,28 +180,22 @@ export default function Home() {
         </Tooltip>
 
         {/* Blog Card */}
-        <Tooltip content="Read Blog">
+        <Tooltip content="Coming Soon">
           <Link
-            href="/blog"
+            href="#"
             className="col-span-1 md:col-span-2 lg:col-span-2 md:row-span-2 h-40 md:h-auto"
           >
-            <Card className="h-full flex flex-col p-3 sm:p-4 lg:p-5 hover:shadow-lg group cursor-pointer relative border-muted/40 bg-card/80 transition-all duration-200 hover:-translate-y-1">
+            <Card className="h-full flex flex-col p-3 sm:p-4 lg:p-5 hover:shadow-lg group cursor-pointer relative border-muted/40 bg-card/80 transition-all duration-200 hover:-translate-y-1 opacity-50">
               <div className="flex items-center justify-between mb-2">
                 <h2 className="text-xl sm:text-2xl lg:text-3xl font-bold font-mono group-hover:text-primary transition-colors duration-200">
                   Blog
                 </h2>
               </div>
-              <div className="flex flex-col gap-1 mt-1">
-                <span className="text-[10px] font-semibold text-primary/80 uppercase tracking-wider">
-                  Latest Post
-                </span>
+              {/* <div className="flex flex-col gap-1 mt-1">
                 <p className="text-xs sm:text-sm font-medium leading-tight text-foreground/90 group-hover:underline decoration-primary/50 underline-offset-4 line-clamp-2">
-                  Optimizing .NET Core Performance for High-Scale Apps
+                  Coming Soon
                 </p>
-                <p className="text-[10px] sm:text-xs text-muted-foreground mt-1">
-                  Nov 24, 2025 • 5 min read
-                </p>
-              </div>
+              </div> */}
               <CircleArrowOutUpRight
                 className="absolute bottom-3 right-3 sm:bottom-4 sm:right-4 lg:bottom-5 lg:right-5 opacity-50 group-hover:opacity-100 transition-opacity duration-200 text-primary"
                 size={20}
